@@ -36,5 +36,15 @@ Convert nested list to a functional horisontal menu of multiple levels.
 
 ```
 
+## Contributions
+
+### Development
+
+Following tasks are there to help with automation:
+
+- `grunt watch:bdd` listens to tests and source, reruns tests
+- `grunt qa` run QA task that includes tests and JSHint
+- `grunt build` minify source to dist/
+
 ## Licence
 Copyright © 2015 Interactive Pioneers GmbH. Licenced under [GPLv3](LICENSE).
