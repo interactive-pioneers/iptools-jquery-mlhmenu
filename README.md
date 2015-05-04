@@ -10,7 +10,7 @@ Convert nested list to a functional horisontal menu of multiple levels.
 
 ## Example
 
-_Coming soon_ .
+_Coming soon_.
 
 ## Licence
 Copyright © 2015 Interactive Pioneers GmbH. Licenced under [GPLv3](LICENSE).
