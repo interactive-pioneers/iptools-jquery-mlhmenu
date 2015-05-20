@@ -101,8 +101,6 @@
 
           var leftOffset = $(this).offset().left - $(cnt).offset().left;
 
-          console.log($(this).offset().left);
-
           $(this).css({left: -leftOffset, width: $(cnt).width()});
 
           if($(this).hasClass('level-2')) {
