@@ -6,7 +6,7 @@
     var config = {
       title: 'Menu',
       subtitle: 'Overview',
-      breakPalm: 720
+      breakPalm: 120
     };
 
     var menu = null;
@@ -39,10 +39,14 @@
 
       it('expected to set style attribute on every list element', function() {
         if(document.body.clientWidth >= menu.data('plugin_Mlhmenu').settings.breakPalm) {
-          return expect($(menu).find('.header__nav__list').attr('style')).to.exist;
+          return expect($(menu).find('.header__nav__list').attr('style')).to.include('left');
         }
       });
 
+      it('expected to toggle between states', function() {
+        return expect(menu.toggle()).to.be.ok;
+      });
+      
     });
 
   });
