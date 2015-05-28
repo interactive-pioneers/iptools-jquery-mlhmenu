@@ -1,5 +1,5 @@
 /* global jQuery */
-(function ($, window, document) {
+(function($, window, document) {
 
   'use strict';
 
@@ -24,15 +24,15 @@
     this._defaults = defaults;
     this._name = pluginName;
 
-    this.element.find(navItem).on('click', function (event) {
+    this.element.find(navItem).on('click', function(event) {
       self.toggle(event);
     });
 
-    this.element.find(navClose).on('click', function (event) {
+    this.element.find(navClose).on('click', function(event) {
       self.close(event);
     });
 
-    $(window).on('resize', function () {
+    $(window).on('resize', function() {
       self.set();
     });
 
@@ -42,7 +42,7 @@
 
   Mlhmenu.prototype = {
 
-    clone: function () {
+    clone: function() {
 
       var classesToRemove = [
         'header__nav__list',
@@ -59,16 +59,19 @@
         var titleText = self.settings.title;
         var subtitleText = self.settings.subtitle;
 
-        $($('.mm-panel.mm-hasnavbar', this).get().reverse()).each(function () {
+        $($('.mm-panel.mm-hasnavbar', this).get().reverse()).each(function() {
           var panel = $(this);
           var panelTitle = panel.find('> .mm-navbar .mm-title');
-          var panelSubtitle = $('<li>').addClass('title').text(subtitleText + ' ' + panelTitle.text());
+          var panelSubtitle = $('<li>')
+            .addClass('title').text(subtitleText + ' ' + panelTitle.text());
           var parentPanel = $(panel.find('> .mm-navbar .mm-prev').attr('href'));
           var parentPanelTitle = parentPanel.find('> .mm-navbar .mm-title');
           var panelList = panel.find('> .mm-listview');
-          var panelIcon = parentPanel.find('.mm-next[href="#'+panel.attr('id')+'"]').parent().find('.header__nav__list__item__icon');
+          var panelIcon = parentPanel
+            .find('.mm-next[href="#' + panel.attr('id') + '"]')
+            .parent().find('.header__nav__list__item__icon');
 
-          if(panelIcon.length) {
+          if (panelIcon.length) {
             panelSubtitle.prepend(panelIcon.clone());
           }
           panelList.prepend(panelSubtitle);
@@ -81,7 +84,8 @@
       }
 
       var $menu = this.element.clone();
-      $menu.attr({id: 'menu', class: ''}).find('*').removeAttr('style').removeClass(classesToRemove.join(' '));
+      $menu.attr({id: 'menu', class: ''})
+        .find('*').removeAttr('style').removeClass(classesToRemove.join(' '));
 
       if ($.mmenu !== undefined) {
         $menu.mmenu({
@@ -90,36 +94,40 @@
       }
     },
 
-    set: function () {
-      if(!$('#menu').length && document.body.clientWidth <= this.settings.breakPalm) {
+    set: function() {
+      var isPalm = document.body.clientWidth <= this.settings.breakPalm;
+      if (!$('#menu').length && isPalm) {
         this.clone();
       }
-      if(document.body.clientWidth >= this.settings.breakPalm) {
+      // TODO DRY it, combine with isPalm boolean
+      if (document.body.clientWidth >= this.settings.breakPalm) {
 
-        this.element.find(navList).each(function () {
+        this.element.find(navList).each(function() {
           $(this).css({left: ''});
 
           var leftOffset = $(this).offset().left - $(cnt).offset().left;
 
           $(this).css({left: -leftOffset, width: $(cnt).width()});
 
-          if($(this).hasClass('level-2')) {
+          if ($(this).hasClass('level-2')) {
             $(this).css({height: ''}).css({height: $(this).height()});
           }
 
-          if($(this).hasClass('level-3')) {
+          if ($(this).hasClass('level-3')) {
             $(this).css({paddingLeft: leftOffset - 7});
           }
         });
       }
     },
 
-    close: function (event) {
+    close: function(event) {
       event.preventDefault();
-      this.element.find(navList).removeClass('expanded').find(navItem).removeClass('active');
+      this.element
+        .find(navList).removeClass('expanded')
+        .find(navItem).removeClass('active');
     },
 
-    toggle: function (event) {
+    toggle: function(event) {
       event.stopPropagation();
 
       var $target = $(event.target).parent(navItem);
@@ -133,8 +141,8 @@
 
   };
 
-  $.fn[ pluginName ] = function (options) {
-    return this.each(function () {
+  $.fn[ pluginName ] = function(options) {
+    return this.each(function() {
       if (!$.data(this, 'plugin_' + pluginName)) {
         $.data(this, 'plugin_' + pluginName, new Mlhmenu(this, options));
       }
