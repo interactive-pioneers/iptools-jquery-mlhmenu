@@ -40,6 +40,7 @@
 
   }
 
+  // XXX decision pending on wrapping convention
   Mlhmenu.prototype = {
 
     clone: function() {
@@ -59,6 +60,7 @@
         var titleText = self.settings.title;
         var subtitleText = self.settings.subtitle;
 
+        // TODO move selectors to a global selectors object holding classes
         $($('.mm-panel.mm-hasnavbar', this).get().reverse()).each(function() {
           var panel = $(this);
           var panelTitle = panel.find('> .mm-navbar .mm-title');
