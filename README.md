@@ -7,7 +7,7 @@ Convert nested list to a functional horisontal menu of multiple levels.
 
 ## Requirements
 
-- jQuery (version TBD)
+- jQuery 1.11.3 or greater
 
 ## Example
 
