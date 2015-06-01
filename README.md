@@ -29,7 +29,7 @@ Convert nested list to a functional horisontal menu of multiple levels.
 <script src="scripts/iptools-jquery-mlhmenu.js"></script>
 <script type="text/javascript">
    $(document).ready(function() {
-      $("#my-menu").mlhmenu({
+      $("#my-menu").iptMlhMenu({
          // options
       });
    });
