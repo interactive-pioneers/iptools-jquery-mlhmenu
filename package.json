@@ -1,8 +1,8 @@
 {
-  "name": "jquery-mlhmenu",
-  "version": "0.0.1",
+  "name": "iptools-jquery-mlhmenu",
+  "version": "0.0.2",
   "description": "Multi-level horisontal jQuery menu.",
-  "homepage": "https://github.com/interactive-pioneers/jquery-mlhmenu",
+  "homepage": "https://github.com/interactive-pioneers/iptools-jquery-mlhmenu",
   "author": {
     "name": "Interactive Pioneers GmbH",
     "email": "hello@interactive-pioneers.de"
@@ -17,7 +17,7 @@
       "email": "at@interactive-pioneers.de"
     }
   ],
-  "bugs": "https://github.com/interactive-pioneers/jquery-mlhmenu/issues",
+  "bugs": "https://github.com/interactive-pioneers/iptools-jquery-mlhmenu/issues",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.4",
@@ -37,12 +37,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/interactive-pioneers/jquery-mlhmenu.git"
+    "url": "https://github.com/interactive-pioneers/iptools-jquery-mlhmenu.git"
   },
   "licenses": [
     {
       "type": "GPL",
-      "url": "https://github.com/interactive-pioneers/jquery-mlhmenu/blob/master/LICENSE"
+      "url": "https://github.com/interactive-pioneers/iptools-jquery-mlhmenu/blob/master/LICENSE"
     }
   ],
   "scripts": {

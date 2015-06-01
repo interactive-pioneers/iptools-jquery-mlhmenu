@@ -24,14 +24,14 @@ module.exports = function (grunt) {
     watch: {
       qa: {
         files: [
-          '<%= yeoman.src %>/jquery-mlhmenu.js',
+          '<%= yeoman.src %>/*.js',
           'test/spec/test.js'
         ],
         tasks: ['concurrent:qa']
       },
       bdd: {
         files: [
-          '<%= yeoman.src %>/jquery-mlhmenu.js',
+          '<%= yeoman.src %>/*.js',
           'test/spec/test.js'
         ],
         tasks: ['test']
@@ -75,7 +75,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'dist/jquery-mlhmenu.min.js': 'src/jquery-mlhmenu.js'
+          'dist/iptools-jquery-mlhmenu.min.js': 'src/iptools-jquery-mlhmenu.js'
         }
       }
     },
