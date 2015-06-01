@@ -2,7 +2,7 @@
 
   'use strict';
 
-  var pluginName = 'Mlhmenu';
+  var pluginName = 'iptMlhMenu';
 
   var defaults = {
     id: 'menu',
@@ -22,7 +22,7 @@
   var cssClassActive = 'active';
   var cssClassExpanded = 'expanded';
 
-  function Mlhmenu(element, options) {
+  function IPTMlhMenu(element, options) {
 
     this.element = $(element);
     this.settings = $.extend({}, defaults, options);
@@ -35,9 +35,9 @@
 
   }
 
-  Mlhmenu.prototype = {
+  IPTMlhMenu.prototype = {
 
-    clone: function () {
+    clone: function() {
 
       var menuExtensions = [
         'theme-sennheiser',
@@ -110,6 +110,7 @@
       var self = event.data;
 
       // FIXME break logic into method. Violates JSCS as well.
+      // TODO move '#' concat to selectors object in closure.
       if (!$('#' + self.settings.id).length && document.body.clientWidth <= self.settings.breakPalm) {
         self.clone();
       }
@@ -177,7 +178,7 @@
   $.fn[pluginName] = function(options) {
     return this.each(function() {
       if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName, new Mlhmenu(this, options));
+        $.data(this, 'plugin_' + pluginName, new IPTMlhMenu(this, options));
       }
     });
   };

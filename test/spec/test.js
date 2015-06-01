@@ -1,7 +1,7 @@
 'use strict';
 /* jshint undef: false */
 (function() {
-  describe('MlhMenu', function() {
+  describe('IPTMlhMenu', function() {
 
     var config = {
       title: 'Menu',
@@ -14,7 +14,7 @@
     describe('init', function() {
 
       beforeEach(function() {
-        menu = $('.header__nav').Mlhmenu(config);
+        menu = $('.header__nav').iptMlhMenu(config);
       });
 
       it('expected to construct object', function() {
@@ -26,19 +26,19 @@
       });
 
       it('expected breakPalm setting to be of numeric type', function() {
-        return expect(menu.data('plugin_Mlhmenu').settings.breakPalm).to.be.a('number');
+        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm).to.be.a('number');
       });
 
       it('expected title setting to be of string type', function() {
-        return expect(menu.data().plugin_Mlhmenu.settings.title).to.be.a('string');
+        return expect(menu.data().plugin_iptMlhMenu.settings.title).to.be.a('string');
       });
 
       it('expected to set breakPalm to ' + config.breakPalm, function() {
-        return expect(menu.data('plugin_Mlhmenu').settings.breakPalm).to.equal(config.breakPalm);
+        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm).to.equal(config.breakPalm);
       });
 
       it('expected to set style attribute on every list element', function() {
-        if(document.body.clientWidth >= menu.data('plugin_Mlhmenu').settings.breakPalm) {
+        if (document.body.clientWidth >= menu.data('plugin_iptMlhMenu').settings.breakPalm) {
           return expect($(menu).find('.header__nav__list').attr('style')).to.include('left');
         }
       });
@@ -46,7 +46,7 @@
       it('expected to toggle between states', function() {
         return expect(menu.toggle()).to.be.ok;
       });
-      
+
     });
 
   });
