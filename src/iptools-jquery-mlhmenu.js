@@ -1,5 +1,4 @@
-/* global jQuery */
-(function ($, window, document) {
+(function($, window, document) {
 
   'use strict';
 
@@ -18,7 +17,7 @@
     item: '.header__nav__list__item',
     close: '.header__nav__close',
     search: '.header__search'
-  }
+  };
 
   var cssClassActive = 'active';
   var cssClassExpanded = 'expanded';
@@ -58,9 +57,9 @@
       $menu.attr({id: this.settings.id, class: ''})
         .find('*').removeAttr('style').removeClass(classesToRemove.join(' '));
 
-      if ($.mmenu != undefined) {
+      if ($.mmenu !== undefined) {
         $menu.mmenu({extensions: menuExtensions}).on('init', this, this.init)
-          .trigger("init");
+          .trigger('init');
       }
     },
 
@@ -74,23 +73,27 @@
         prevButton: '> .mm-navbar .mm-prev',
         nextButton: '.mm-next',
         icon: '.header__nav__list__item__icon'
-      }
+      };
 
       var titleText = self.settings.title;
       var subtitleText = self.settings.subtitle;
 
-      $($('.mm-panel.mm-hasnavbar', this).get().reverse()).each(function () {
+      $($('.mm-panel.mm-hasnavbar', this).get().reverse()).each(function() {
 
         var panel = $(this);
         var panelTitle = panel.find(selector.title);
-        var panelSubtitle = $('<li>').addClass('title').text(subtitleText + ' ' + panelTitle.text());
+        var panelSubtitle = $('<li>').addClass('title')
+          .text(subtitleText + ' ' + panelTitle.text());
         var parentPanel = $(panel.find(selector.prevButton).attr('href'));
         var parentPanelTitle = parentPanel.find(selector.title);
         var panelList = panel.find(selector.list);
-        var panelIcon = parentPanel.find(selector.nextButton + '[href="#' + panel.attr('id') + '"]').parent().find(selector.icon);
+        var panelIcon = parentPanel
+          .find(selector.nextButton + '[href="#' + panel.attr('id') + '"]')
+          .parent()
+          .find(selector.icon);
 
-        if(panelIcon.length) {
-          panelSubtitle.prepend(panelIcon.clone())
+        if (panelIcon.length) {
+          panelSubtitle.prepend(panelIcon.clone());
         }
         panelList.prepend(panelSubtitle);
 
@@ -102,28 +105,31 @@
       });
     },
 
-    set: function (event) {
+    set: function(event) {
 
       var self = event.data;
 
-      if(!$('#' + self.settings.id).length && document.body.clientWidth <= self.settings.breakPalm) {
+      // FIXME break logic into method. Violates JSCS as well.
+      if (!$('#' + self.settings.id).length && document.body.clientWidth <= self.settings.breakPalm) {
         self.clone();
       }
 
-      if(document.body.clientWidth > self.settings.breakPalm) {
+      if (document.body.clientWidth > self.settings.breakPalm) {
 
-        self.element.find(selector.list).each(function () {
+        self.element.find(selector.list).each(function() {
           $(this).css({left: ''});
 
-          var leftOffset = $(this).offset().left - $(selector.cnt).offset().left;
+          var leftOffset = $(this).offset().left - $(selector.cnt)
+            .offset()
+            .left;
 
           $(this).css({left: -leftOffset, width: $(selector.cnt).width()});
 
-          if($(this).hasClass('level-2')) {
+          if ($(this).hasClass('level-2')) {
             $(this).css({height: ''}).css({height: $(this).height()});
           }
 
-          if($(this).hasClass('level-3')) {
+          if ($(this).hasClass('level-3')) {
             $(this).css({paddingLeft: leftOffset - 7});
           }
         });
@@ -131,7 +137,7 @@
       }
     },
 
-    close: function (event) {
+    close: function(event) {
 
       event.preventDefault();
 
@@ -141,31 +147,35 @@
         .find(selector.item).removeClass(cssClassActive);
     },
 
-    toggle: function (event) {
+    toggle: function(event) {
 
       event.stopPropagation();
 
       var self = event.data;
       var $target = $(event.target).parent(selector.item);
 
-      if($(selector.search).hasClass(cssClassActive)) {
+      function show() {
+        $(selector.item, $target.parent(selector.list))
+          .not($target)
+          .removeClass(cssClassActive);
+        $target.toggleClass(cssClassActive);
+        self.element.find(selector.list).removeClass(cssClassExpanded);
+        $('.' + cssClassActive + ' > ' + selector.list)
+          .parents(selector.list)
+          .addClass(cssClassExpanded);
+      }
+
+      if ($(selector.search).hasClass(cssClassActive)) {
         $(selector.search).removeClass(cssClassActive);
         setTimeout(show, 350);
       } else {
         show();
       }
-
-      function show() {
-        $(selector.item, $target.parent(selector.list)).not($target).removeClass(cssClassActive);
-        $target.toggleClass(cssClassActive);
-        self.element.find(selector.list).removeClass(cssClassExpanded);
-        $('.' + cssClassActive + ' > ' + selector.list).parents(selector.list).addClass(cssClassExpanded);
-      }
     }
   };
 
-  $.fn[ pluginName ] = function (options) {
-    return this.each(function () {
+  $.fn[pluginName] = function(options) {
+    return this.each(function() {
       if (!$.data(this, 'plugin_' + pluginName)) {
         $.data(this, 'plugin_' + pluginName, new Mlhmenu(this, options));
       }
