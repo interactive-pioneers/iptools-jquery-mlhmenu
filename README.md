@@ -1,4 +1,4 @@
-# jquery-mlhmenu [![Build Status](http://img.shields.io/travis/interactive-pioneers/jquery-mlhmenu.svg)](https://travis-ci.org/interactive-pioneers/jquery-mlhmenu)
+# iptools-jquery-mlhmenu [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-mlhmenu.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-mlhmenu)
 
 Multi-level horisontal jQuery menu.
 
@@ -26,7 +26,7 @@ Convert nested list to a functional horisontal menu of multiple levels.
    </ul>
 </nav>
 
-<script src="scripts/jquery-mlhmenu.js"></script>
+<script src="scripts/iptools-jquery-mlhmenu.js"></script>
 <script type="text/javascript">
    $(document).ready(function() {
       $("#my-menu").mlhmenu({
@@ -41,13 +41,13 @@ Convert nested list to a functional horisontal menu of multiple levels.
 
 ### Bug reports, suggestions
 
-- File all your issues, feature requests [here](https://github.com/interactive-pioneers/jquery-mlhmenu/issues)
+- File all your issues, feature requests [here](https://github.com/interactive-pioneers/iptools-jquery-mlhmenu/issues)
 - If filing a bug report, follow the convention of _Steps to reproduce_ / _What happens?_ / _What should happen?_
 - __If you're a developer, write a failing test instead of a bug report__ and send a Pull Request
 
 ### Code
 
-1. Fork it ( https://github.com/[my-github-username]/jquery-mlhmenu/fork )
+1. Fork it ( https://github.com/[my-github-username]/iptools-jquery-mlhmenu/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Develop your feature by concepts of [TDD](http://en.wikipedia.org/wiki/Test-driven_development), see [Tips](#tips)
 3. Commit your changes (`git commit -am 'Add some feature'`)
