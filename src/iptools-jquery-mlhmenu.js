@@ -111,7 +111,8 @@
 
       // FIXME break logic into method. Violates JSCS as well.
       // TODO move '#' concat to selectors object in closure.
-      if (!$('#' + self.settings.id).length && document.body.clientWidth <= self.settings.breakPalm) {
+      if (!$('#' + self.settings.id).length &&
+            document.body.clientWidth <= self.settings.breakPalm) {
         self.clone();
       }
 

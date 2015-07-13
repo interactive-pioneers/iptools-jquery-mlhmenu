@@ -26,20 +26,25 @@
       });
 
       it('expected breakPalm setting to be of numeric type', function() {
-        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm).to.be.a('number');
+        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm)
+          .to.be.a('number');
       });
 
       it('expected title setting to be of string type', function() {
-        return expect(menu.data().plugin_iptMlhMenu.settings.title).to.be.a('string');
+        return expect(menu.data('plugin_iptMlhMenu').settings.title)
+          .to.be.a('string');
       });
 
       it('expected to set breakPalm to ' + config.breakPalm, function() {
-        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm).to.equal(config.breakPalm);
+        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm)
+          .to.equal(config.breakPalm);
       });
 
       it('expected to set style attribute on every list element', function() {
-        if (document.body.clientWidth >= menu.data('plugin_iptMlhMenu').settings.breakPalm) {
-          return expect($(menu).find('.header__nav__list').attr('style')).to.include('left');
+        if (document.body.clientWidth >= menu.data('plugin_iptMlhMenu')
+              .settings.breakPalm) {
+          return expect($(menu).find('.header__nav__list').attr('style'))
+            .to.include('left');
         }
       });
 
