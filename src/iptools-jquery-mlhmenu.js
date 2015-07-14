@@ -29,13 +29,16 @@
     this._defaults = defaults;
     this._name = pluginName;
 
-    this.element.find(selector.item).on('click', this, this.toggle);
-    this.element.find(selector.close).on('click', this, this.close);
-    $(window).on('resize', this, this.set).trigger('resize');
-
+    this.addEvents();
   }
 
   IPTMlhMenu.prototype = {
+
+    addEvents: function() {
+      this.element.find(selector.item).on('click', this, this.toggle);
+      this.element.find(selector.close).on('click', this, this.close);
+      $(window).on('resize', this, this.set).trigger('resize');
+    },
 
     clone: function() {
 
@@ -109,8 +112,6 @@
 
       var self = event.data;
 
-      // FIXME break logic into method. Violates JSCS as well.
-      // TODO move '#' concat to selectors object in closure.
       if (!$('#' + self.settings.id).length &&
             document.body.clientWidth <= self.settings.breakPalm) {
         self.clone();
