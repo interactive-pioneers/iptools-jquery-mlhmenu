@@ -37,6 +37,13 @@ Convert nested list to a functional horisontal menu of multiple levels.
 
 ```
 
+## Options
+
+1. id - The identifier of the cloned copy of the menu
+2. title - the title of the menu
+3. subtitle - the subtitle of the menu
+4. breakPalm - The pixel value at which the clone function triggers 
+
 ## Contributions
 
 ### Bug reports, suggestions
