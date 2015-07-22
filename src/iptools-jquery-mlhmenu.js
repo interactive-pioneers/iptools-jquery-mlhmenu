@@ -12,11 +12,10 @@
   };
 
   var selector = {
-    cnt: '.header',
+    cnt: '.header__wrapper',
     list: '.header__nav__list',
     item: '.header__nav__list__item',
-    close: '.header__nav__close',
-    search: '.header__search'
+    close: '.header__nav__close'
   };
 
   var cssClassActive = 'active';
@@ -168,12 +167,7 @@
           .addClass(cssClassExpanded);
       }
 
-      if ($(selector.search).hasClass(cssClassActive)) {
-        $(selector.search).removeClass(cssClassActive);
-        setTimeout(show, 350);
-      } else {
-        show();
-      }
+      show();
     }
   };
 
