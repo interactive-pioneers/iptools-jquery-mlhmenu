@@ -60,7 +60,8 @@
         .find('*').removeAttr('style').removeClass(classesToRemove.join(' '));
 
       if ($.mmenu !== undefined) {
-        $menu.mmenu({extensions: menuExtensions, searchfield: true}).on('init', this, this.init)
+        $menu.mmenu({extensions: menuExtensions, searchfield: true})
+          .on('init', this, this.init)
           .trigger('init');
       }
     },
