@@ -2,7 +2,7 @@
   "name": "iptools-jquery-mlhmenu",
   "description": "Multi-level horisontal jQuery menu",
   "main": "src/iptools-jquery-mlhmenu.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "GPL-3.0",
   "ignore": [
     ".git*",
