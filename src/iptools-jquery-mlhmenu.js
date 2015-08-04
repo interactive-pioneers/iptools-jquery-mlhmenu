@@ -34,8 +34,8 @@
   IPTMlhMenu.prototype = {
 
     addEvents: function() {
-      this.element.find(selector.item).on('click', this, this.toggle);
-      this.element.find(selector.close).on('click', this, this.close);
+      this.element.find(selector.item).on('mouseenter', this, this.toggleOn);
+      this.element.find(selector.item).on('mouseleave', this, this.toggleOff);
       $(window).on('resize', this, this.set).trigger('resize');
     },
 
@@ -52,7 +52,9 @@
         'header__nav__list__item',
         'header__nav__list__item__link',
         'header__nav__close',
-        'is-1-of-5'
+        'is-1-of-4',
+        'is-1-of-5',
+        'is-1-of-6'
       ];
 
       var $menu = this.element.clone();
@@ -169,6 +171,40 @@
       }
 
       show();
+    },
+
+    toggleOn: function(event) {
+
+      event.stopPropagation();
+
+      var self = event.data;
+      var $target = $(event.target).parent(selector.item);
+
+      $(selector.item, $target.parent(selector.list))
+        .removeClass(cssClassActive);
+
+      if ($target.children(selector.list).length) {
+        $target.addClass(cssClassActive);
+
+        self.element.find(selector.list).removeClass(cssClassExpanded);
+        $('.' + cssClassActive + ' > ' + selector.list).parents(selector.list)
+          .addClass(cssClassExpanded);
+      }
+    },
+
+    toggleOff: function(event) {
+
+      event.stopPropagation();
+
+      var self = event.data;
+      var $target = $(event.target).parent(selector.item);
+
+      $target.removeClass(cssClassActive);
+
+      self.element.find(selector.list).removeClass(cssClassExpanded);
+      $('.' + cssClassActive + ' > ' + selector.list).parents(selector.list)
+        .addClass(cssClassExpanded);
+
     }
   };
 
