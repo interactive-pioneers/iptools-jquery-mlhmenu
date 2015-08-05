@@ -15,6 +15,8 @@
     cnt: '.header__wrapper',
     list: '.header__nav__list',
     item: '.header__nav__list__item',
+    item1: '.level-1 > .header__nav__list__item',
+    item2: '.level-2 > .header__nav__list__item',
     close: '.header__nav__close'
   };
 
@@ -34,8 +36,10 @@
   IPTMlhMenu.prototype = {
 
     addEvents: function() {
-      this.element.find(selector.item).on('mouseenter', this, this.toggleOn);
-      this.element.find(selector.item).on('mouseleave', this, this.toggleOff);
+      this.element.find(selector.item1).on('click', this, this.toggle);
+      this.element.find(selector.item2).on('mouseenter', this, this.toggleOn);
+      this.element.find(selector.item2).on('mouseleave', this, this.toggleOff);
+      this.element.find(selector.close).on('click', this, this.close);
       $(window).on('resize', this, this.set).trigger('resize');
     },
 
@@ -153,7 +157,6 @@
     },
 
     toggle: function(event) {
-
       event.stopPropagation();
 
       var self = event.data;
