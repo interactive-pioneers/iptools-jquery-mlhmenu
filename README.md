@@ -1,4 +1,4 @@
-# iptools-jquery-mlhmenu [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-mlhmenu.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-mlhmenu)
+# iptools-jquery-mlhmenu [![Build Status](http://img.shields.io/travis/interactive-pioneers/iptools-jquery-mlhmenu.svg)](https://travis-ci.org/interactive-pioneers/iptools-jquery-mlhmenu) [![Bower version](https://badge.fury.io/bo/iptools-jquery-mlhmenu.svg)](http://badge.fury.io/bo/iptools-jquery-mlhmenu)
 
 Multi-level horisontal jQuery menu.
 
@@ -42,7 +42,7 @@ Convert nested list to a functional horisontal menu of multiple levels.
 1. id - The identifier of the cloned copy of the menu
 2. title - the title of the menu
 3. subtitle - the subtitle of the menu
-4. breakPalm - The pixel value at which the clone function triggers 
+4. breakPalm - The pixel value at which the clone function triggers
 
 ## Contributions
 
