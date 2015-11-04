@@ -20,7 +20,7 @@ module.exports = function(grunt) {
           '* <%= yeoman.pkg.homepage %>\n' +
           '* Copyright © <%= grunt.template.today("yyyy") %> ' +
           '<%= yeoman.pkg.author.name %>; ' +
-          'Licensed <%= yeoman.pkg.licenses[0].type %> */'
+          'Licensed <%= yeoman.pkg.license %> */'
       },
     },
     watch: {
