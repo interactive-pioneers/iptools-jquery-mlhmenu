@@ -209,6 +209,8 @@
         .addClass(cssClassExpanded);
 
     }
+
+    // TODO: implement destroy method. See issue #11.
   };
 
   $.fn[pluginName] = function(options) {

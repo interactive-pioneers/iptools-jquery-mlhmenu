@@ -17,6 +17,8 @@
         menu = $('.header__nav').iptMlhMenu(config);
       });
 
+      // TODO: implement destroy after each test, see issue #11.
+
       it('expected to construct object', function() {
         return expect(menu).to.be.an.object;
       });
