@@ -27,14 +27,14 @@ module.exports = function(grunt) {
       qa: {
         files: [
           '<%= yeoman.src %>/*.js',
-          'test/spec/test.js'
+          '<%= yeoman.test %>/spec/test.js'
         ],
         tasks: ['concurrent:qa']
       },
       bdd: {
         files: [
           '<%= yeoman.src %>/*.js',
-          'test/spec/test.js'
+          '<%= yeoman.test %>/spec/test.js'
         ],
         tasks: ['test']
       }
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         '<%= yeoman.src %>/{,*/}*.js',
-        'test/spec/{,*/}*.js'
+        '<%= yeoman.test %>/spec/{,*/}*.js'
       ]
     },
     mocha: {
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
           run: true,
           log: true
         },
-        src: ['test/index.html']
+        src: ['<%= yeoman.test %>/index.html']
       }
     },
     concurrent: {
