@@ -8,8 +8,8 @@
       subtitle: 'Overview',
       breakPalm: 120
     };
-
     var menu = null;
+    var pluginRef = 'plugin_iptMlhMenu';
 
     describe('init', function() {
 
@@ -26,23 +26,22 @@
       });
 
       it('expected breakPalm setting to be of numeric type', function() {
-        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm)
+        return expect(menu.data(pluginRef).settings.breakPalm)
           .to.be.a('number');
       });
 
       it('expected title setting to be of string type', function() {
-        return expect(menu.data('plugin_iptMlhMenu').settings.title)
+        return expect(menu.data(pluginRef).settings.title)
           .to.be.a('string');
       });
 
       it('expected to set breakPalm to ' + config.breakPalm, function() {
-        return expect(menu.data('plugin_iptMlhMenu').settings.breakPalm)
+        return expect(menu.data(pluginRef).settings.breakPalm)
           .to.equal(config.breakPalm);
       });
 
       it('expected to set style attribute on every list element', function() {
-        if (document.body.clientWidth >= menu.data('plugin_iptMlhMenu')
-              .settings.breakPalm) {
+        if (document.body.clientWidth >= menu.data(pluginRef).settings.breakPalm) {
           return expect($(menu).find('.header__nav__list').attr('style'))
             .to.include('left');
         }
