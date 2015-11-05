@@ -10,14 +10,17 @@
     };
     var menu = null;
     var pluginRef = 'plugin_iptMlhMenu';
+    var selector = '.header__nav';
 
     describe('init', function() {
 
       beforeEach(function() {
-        menu = $('.header__nav').iptMlhMenu(config);
+        menu = $(selector).iptMlhMenu(config);
       });
 
-      // TODO: implement destroy after each test, see issue #11.
+      afterEach(function() {
+        menu.data(pluginRef).destroy();
+      });
 
       it('expected to construct object', function() {
         return expect(menu).to.be.an.object;

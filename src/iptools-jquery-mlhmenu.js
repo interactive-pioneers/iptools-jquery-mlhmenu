@@ -208,9 +208,16 @@
       $('.' + cssClassActive + ' > ' + selector.list).parents(selector.list)
         .addClass(cssClassExpanded);
 
-    }
+    },
 
-    // TODO: implement destroy method. See issue #11.
+    destroy: function() {
+      this.element.find(selector.item1).off('click', this, this.toggle);
+      this.element.find(selector.item2).off('mouseenter', this, this.toggleOn);
+      this.element.find(selector.item2).off('mouseleave', this, this.toggleOff);
+      this.element.find(selector.close).off('click', this, this.close);
+      $(window).off('resize', this, this.set);
+      this.element.removeData('plugin_' + pluginName);
+    }
   };
 
   $.fn[pluginName] = function(options) {

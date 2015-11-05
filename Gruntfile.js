@@ -27,14 +27,14 @@ module.exports = function(grunt) {
       qa: {
         files: [
           '<%= yeoman.src %>/*.js',
-          '<%= yeoman.test %>/spec/test.js'
+          '<%= yeoman.test %>/spec/*.js'
         ],
         tasks: ['concurrent:qa']
       },
       bdd: {
         files: [
           '<%= yeoman.src %>/*.js',
-          '<%= yeoman.test %>/spec/test.js'
+          '<%= yeoman.test %>/spec/*.js'
         ],
         tasks: ['test']
       }
