@@ -13,7 +13,8 @@
 
   var datas = {
     styleWhitelist: 'mlhmenu-style-whitelist',
-    hover: 'mlhmenu-hover-background'
+    normalIcon: 'mlhmenu-normal-icon',
+    activeIcon: 'mlhmenu-active-icon'
   };
 
   var selector = {
@@ -22,7 +23,8 @@
     item: '.header__nav__list__item',
     item1: '.level-1 > .header__nav__list__item',
     item2: '.level-2 > .header__nav__list__item',
-    close: '.header__nav__close'
+    close: '.header__nav__close',
+    actionableIcon: '.header__nav__list__item__icon[data-' + datas.activeIcon + ']'
   };
 
   var cssClassActive = 'active';
@@ -42,8 +44,8 @@
 
     addEvents: function() {
       this.element.find(selector.item1).on('click', this, this.toggle);
-      this.element.find(selector.item2).on('mouseenter', this, this.toggleOn);
-      this.element.find(selector.item2).on('mouseleave', this, this.toggleOff);
+      this.element.find(selector.item2).on('mouseenter', this, this.toggleOn)
+        .on('mouseleave', this, this.toggleOff);
       this.element.find(selector.close).on('click', this, this.close);
       $(window).on('resize', this, this.set).trigger('resize');
     },
@@ -208,6 +210,11 @@
         $('.' + cssClassActive + ' > ' + selector.list).parents(selector.list)
           .addClass(cssClassExpanded);
       }
+
+      if ($(this).find(selector.actionableIcon)) {
+        var $icon = $(this).find(selector.actionableIcon);
+        $icon.css('background-image', 'url(' + $icon.data(datas.activeIcon) + ')');
+      }
     },
 
     toggleOff: function(event) {
@@ -223,6 +230,10 @@
       $('.' + cssClassActive + ' > ' + selector.list).parents(selector.list)
         .addClass(cssClassExpanded);
 
+      if ($(this).find(selector.actionableIcon)) {
+        var $icon = $(this).find(selector.actionableIcon);
+        $icon.css('background-image', 'url(' + $icon.data(datas.normalIcon) + ')');
+      }
     },
 
     destroy: function() {
