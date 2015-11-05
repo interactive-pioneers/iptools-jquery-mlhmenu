@@ -8,8 +8,12 @@
     id: 'menu',
     title: 'Menu',
     subtitle: 'Overview',
-    breakPalm: 640,
-    styleWhitelistSelectors: null
+    breakPalm: 640
+  };
+
+  var datas = {
+    styleWhitelist: 'mlhmenu-style-whitelist',
+    hover: 'mlhmenu-hover-background'
   };
 
   var selector = {
@@ -67,9 +71,9 @@
         var $menu = this.element.clone();
         $menu.attr({id: this.settings.id, class: ''})
           .find('*')
-          .not(this.settings.styleWhitelistSelectors)
-          .removeAttr('style')
-          .removeClass(classesToRemove.join(' '));
+          .removeClass(classesToRemove.join(' '))
+          .not('*[data-' + datas.styleWhitelist + '=true]')
+          .removeAttr('style');
 
         $menu.mmenu({extensions: menuExtensions, searchfield: true})
           .on('init', this, this.init)
