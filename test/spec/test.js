@@ -43,7 +43,8 @@
       });
 
       it('expected to set style attribute on every list element', function() {
-        if (document.body.clientWidth >= menu.data(pluginRef).settings.breakPalm) {
+        var palmBreakPoint = menu.data(pluginRef).settings.breakPalm;
+        if (document.body.clientWidth >= palmBreakPoint) {
           return expect($(menu).find('.header__nav__list').attr('style'))
             .to.include('left');
         }
