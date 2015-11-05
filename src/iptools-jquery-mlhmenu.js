@@ -9,7 +9,7 @@
     title: 'Menu',
     subtitle: 'Overview',
     breakPalm: 640,
-    styleWhitelist: null
+    styleWhitelistSelectors: null
   };
 
   var selector = {

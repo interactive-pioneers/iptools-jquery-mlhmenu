@@ -6,7 +6,8 @@
     var config = {
       title: 'Menu',
       subtitle: 'Overview',
-      breakPalm: 120
+      breakPalm: 120,
+      styleWhitelistSelectors: '.dummy-selector'
     };
     var menu = null;
     var pluginRef = 'plugin_iptMlhMenu';
@@ -24,6 +25,15 @@
 
       it('expected to construct object', function() {
         return expect(menu).to.be.an.object;
+      });
+
+      it('expected to have settings from passed-in config', function() {
+        var settings = menu.data(pluginRef).settings;
+        return expect(settings).to.have.property('title', config.title) &&
+          expect(settings).to.have.property('subtitle', config.subtitle) &&
+          expect(settings).to.have.property('breakPalm', config.breakPalm) &&
+          expect(settings).to.have.property('styleWhitelistSelectors',
+              config.styleWhitelistSelectors);
       });
 
       it('expected to have class header__nav', function() {
