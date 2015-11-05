@@ -67,6 +67,7 @@
         var $menu = this.element.clone();
         $menu.attr({id: this.settings.id, class: ''})
           .find('*')
+          .not(this.settings.styleWhitelistSelectors)
           .removeAttr('style')
           .removeClass(classesToRemove.join(' '));
 

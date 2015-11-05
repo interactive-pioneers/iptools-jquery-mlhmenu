@@ -31,6 +31,43 @@
         });
       });
 
+      context('with style whitelist', function() {
+
+        var whitelistedSelector = '.header__nav__list__item__icon';
+        var styleWhitelistConfig = $.extend({}, config, {
+          styleWhitelistSelectors: whitelistedSelector
+        });
+        var style = 'border: 0 none;';
+
+        beforeEach(function() {
+          menu.data(pluginRef).destroy();
+          menu = $(selector).iptMlhMenu(styleWhitelistConfig);
+          $(whitelistedSelector).attr('style', style);
+        });
+
+        afterEach(function() {
+          $(whitelistedSelector).removeAttr('style');
+        });
+
+        it('expected to have persistant style attribute', function() {
+          menu.data(pluginRef).clone();
+          return expect($(whitelistedSelector).attr('style')).to.equal(style);
+        });
+
+      });
+
+      context('without style whitelist', function() {
+
+        var nonWhitelistedSelector = '.header__nav__list__item__icon';
+
+        it('expected to have persistant style attribute', function() {
+          $(nonWhitelistedSelector).attr('style', 'border: 0 none;');
+          menu.data(pluginRef).clone();
+          return expect($(nonWhitelistedSelector).attr('style')).to.not.exist;
+        });
+
+      });
+
     });
 
   });
