@@ -72,7 +72,7 @@
         $menu.attr({id: this.settings.id, class: ''})
           .find('*')
           .removeClass(classesToRemove.join(' '))
-          .not('*[data-' + datas.styleWhitelist + '=true]')
+          .not('*[data-' + datas.styleWhitelist + ']')
           .removeAttr('style');
 
         $menu.mmenu({extensions: menuExtensions, searchfield: true})
