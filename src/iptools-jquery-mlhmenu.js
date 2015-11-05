@@ -8,7 +8,8 @@
     id: 'menu',
     title: 'Menu',
     subtitle: 'Overview',
-    breakPalm: 640
+    breakPalm: 640,
+    styleWhitelist: null
   };
 
   var selector = {
@@ -45,27 +46,30 @@
 
     clone: function() {
 
-      var menuExtensions = [
-        'theme-sennheiser',
-        'effect-slide-menu',
-        'multiline'
-      ];
-
-      var classesToRemove = [
-        'header__nav__list',
-        'header__nav__list__item',
-        'header__nav__list__item__link',
-        'header__nav__close',
-        'is-1-of-4',
-        'is-1-of-5',
-        'is-1-of-6'
-      ];
-
-      var $menu = this.element.clone();
-      $menu.attr({id: this.settings.id, class: ''})
-        .find('*').removeAttr('style').removeClass(classesToRemove.join(' '));
-
       if ($.mmenu !== undefined) {
+
+        var menuExtensions = [
+          'theme-sennheiser',
+          'effect-slide-menu',
+          'multiline'
+        ];
+
+        var classesToRemove = [
+          'header__nav__list',
+          'header__nav__list__item',
+          'header__nav__list__item__link',
+          'header__nav__close',
+          'is-1-of-4',
+          'is-1-of-5',
+          'is-1-of-6'
+        ];
+
+        var $menu = this.element.clone();
+        $menu.attr({id: this.settings.id, class: ''})
+          .find('*')
+          .removeAttr('style')
+          .removeClass(classesToRemove.join(' '));
+
         $menu.mmenu({extensions: menuExtensions, searchfield: true})
           .on('init', this, this.init)
           .trigger('init');
@@ -76,6 +80,7 @@
 
       var self = event.data;
 
+      // TODO: move to class wrapper, see issue #17.
       var selector = {
         list: '> .mm-listview',
         title: '> .mm-navbar .mm-title',
@@ -87,6 +92,8 @@
       var titleText = self.settings.title;
       var subtitleText = self.settings.subtitle;
 
+      // TODO: remove hard-coded classes, see issue #17.
+      // TODO: move all the chained selector-bound assignments to methods.
       $($('.mm-panel.mm-hasnavbar', this).get().reverse()).each(function() {
 
         var panel = $(this);
@@ -118,6 +125,7 @@
 
       var self = event.data;
 
+      // TODO: move calculation to getter method.
       if (!$('#' + self.settings.id).length &&
             document.body.clientWidth <= self.settings.breakPalm) {
         self.clone();
@@ -134,6 +142,7 @@
 
           $(this).css({left: -leftOffset, width: $(selector.cnt).width()});
 
+          // TODO: remove hard-coded classes.
           if ($(this).hasClass('level-2')) {
             $(this).css({height: ''}).css({height: $(this).height()});
           }
@@ -168,6 +177,7 @@
           .removeClass(cssClassActive);
         $target.toggleClass(cssClassActive);
         self.element.find(selector.list).removeClass(cssClassExpanded);
+        // TODO: move to selectors.
         $('.' + cssClassActive + ' > ' + selector.list)
           .parents(selector.list)
           .addClass(cssClassExpanded);
