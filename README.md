@@ -43,6 +43,7 @@ Convert nested list to a functional horisontal menu of multiple levels.
 2. title - the title of the menu
 3. subtitle - the subtitle of the menu
 4. breakPalm - The pixel value at which the clone function triggers
+5. menuExtensions - Array of menu extension names (strings)
 
 ## Contributions
 
