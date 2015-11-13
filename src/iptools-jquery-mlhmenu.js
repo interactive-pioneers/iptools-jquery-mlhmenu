@@ -62,6 +62,8 @@
           'header__nav__list__item',
           'header__nav__list__item__link',
           'header__nav__close',
+          'is-1-of-2',
+          'is-1-of-3',
           'is-1-of-4',
           'is-1-of-5',
           'is-1-of-6'
