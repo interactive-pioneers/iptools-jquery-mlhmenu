@@ -9,11 +9,7 @@
     title: 'Menu',
     subtitle: 'Overview',
     breakPalm: 640,
-    menuExtensions: [
-      'theme-sennheiser',
-      'effect-slide-menu',
-      'multiline'
-    ]
+    menuExtensions: []
   };
 
   var datas = {
