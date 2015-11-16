@@ -8,7 +8,8 @@
     id: 'menu',
     title: 'Menu',
     subtitle: 'Overview',
-    breakPalm: 640
+    breakPalm: 640,
+    menuExtensions: []
   };
 
   var datas = {
@@ -54,17 +55,15 @@
 
       if ($.mmenu !== undefined) {
 
-        var menuExtensions = [
-          'theme-sennheiser',
-          'effect-slide-menu',
-          'multiline'
-        ];
+        var menuExtensions = this.settings.menuExtensions;
 
         var classesToRemove = [
           'header__nav__list',
           'header__nav__list__item',
           'header__nav__list__item__link',
           'header__nav__close',
+          'is-1-of-2',
+          'is-1-of-3',
           'is-1-of-4',
           'is-1-of-5',
           'is-1-of-6'
@@ -77,7 +76,7 @@
           .not('*[data-' + datas.styleWhitelist + ']')
           .removeAttr('style');
 
-        $menu.mmenu({extensions: menuExtensions, searchfield: true})
+        $menu.mmenu({extensions: menuExtensions})
           .on('init', this, this.init)
           .trigger('init');
       }
