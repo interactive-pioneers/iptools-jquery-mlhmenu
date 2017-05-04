@@ -2,7 +2,6 @@
   "name": "iptools-jquery-mlhmenu",
   "description": "Multi-level horisontal jQuery menu",
   "main": "src/iptools-jquery-mlhmenu.js",
-  "version": "0.2.0",
   "license": "GPL-3.0",
   "ignore": [
     ".git*",
@@ -11,12 +10,10 @@
     "Gruntfile.js"
   ],
   "dependencies": {
-    "jquery": "~1.11.3"
+    "jquery": "~1.11.3",
+    "jQuery.mmenu": "~5.7.8"
   },
   "devDependencies": {
-    "mocha": "~2.3.3",
-    "chai": "~3.4.0",
-    "jQuery.mmenu": "~5.1.2"
   },
   "authors": [
     "Interactive Pioneers GmbH <hello@interactive-pioneers.de>"
