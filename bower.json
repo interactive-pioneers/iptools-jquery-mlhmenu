@@ -14,8 +14,6 @@
     "jQuery.mmenu": "~5.1.2"
   },
   "devDependencies": {
-    "mocha": "~2.3.3",
-    "chai": "~3.4.0"
   },
   "authors": [
     "Interactive Pioneers GmbH <hello@interactive-pioneers.de>"
