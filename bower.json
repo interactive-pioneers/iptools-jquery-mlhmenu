@@ -10,12 +10,12 @@
     "Gruntfile.js"
   ],
   "dependencies": {
-    "jquery": "~1.11.3"
+    "jquery": "~1.11.3",
+    "jQuery.mmenu": "~5.1.2"
   },
   "devDependencies": {
     "mocha": "~2.3.3",
-    "chai": "~3.4.0",
-    "jQuery.mmenu": "~5.1.2"
+    "chai": "~3.4.0"
   },
   "authors": [
     "Interactive Pioneers GmbH <hello@interactive-pioneers.de>"
