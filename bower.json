@@ -10,7 +10,7 @@
     "Gruntfile.js"
   ],
   "dependencies": {
-    "jquery": ">1.11.3 <4.0.0",
+    "jquery": ">=1.11.3 <4.0.0",
     "jQuery.mmenu": "~5.7.8"
   },
   "devDependencies": {

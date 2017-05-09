@@ -19,7 +19,7 @@
   ],
   "bugs": "https://github.com/interactive-pioneers/iptools-jquery-mlhmenu/issues",
   "dependencies": {
-    "jquery": ">1.11.3 <4.0.0",
+    "jquery": ">=1.11.3 <4.0.0",
     "jquery.mmenu": "^5.7.8"
   },
   "devDependencies": {
